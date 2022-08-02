@@ -1,0 +1,880 @@
+<!DOCTYPE html>
+
+<html>
+
+<head>
+
+    <meta charset="utf-8" />
+
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+
+    <link href="../static/css/cssAR531d.css" rel="stylesheet" />
+
+    <link href="../static/css/sickLeave.css" rel="stylesheet" />
+
+    <title>{{RIDN}}</title>
+
+</head>
+
+<body dir="rtl">
+
+    <main role="main" class="mainContainer">
+
+      
+
+      <div class="{{HID}}">
+
+        <div id="CreateNewAccount" style="font-family:DINNextLTArabic-Medium,Tahoma,Arial,sans-serif !important" hidden="">
+
+            <div class="col-md-12">
+
+                <div class="row">
+
+                    <h5 style="font-weight: bold !important">التسجيل للمنشآت فقط </h5>
+
+                </div>
+
+            </div>
+
+        </div>
+
+        <div>
+
+        </div>
+
+        <div class="carousel-inner">
+
+            <div class="row">
+
+                <div class="col-md-12 col-xs-12 carousel">
+
+                    <div class="item" style="height:250px">
+
+                        <img class="d-block img-fluid" src="../static/img/calender.png" />
+
+                    </div>
+
+                </div>
+
+            </div>
+
+        </div>
+
+        <div class="row">
+
+            <div class="col-md-12 col-xs-12">
+
+                <section class="l-section l-inq-sec">
+
+                    <br><br><br>
+
+                    <p style="margin:20px !important" ma="" class="l-title">الاستعلام عن الإجازات المرضية</p>
+
+                    <div class="l-u-decore"></div>
+
+                    <p class="l-sec-p">
+
+                        خدمة الاستعلام عن الـإجازات المرضية تتيح لك الاستعلام عن حالة طلبك للإجازة وتمكنك من تصدير وطباعة نسخة لها
+
+                    </p>
+
+                </section>
+
+            </div>
+
+        </div>
+
+        <br><br>
+
+        <div class="row">
+
+            <div class="col-md-12 col-xs-12">
+
+                <section class="l-section l-bg2 l-form-sec">
+
+                    <div class="row">
+
+                        <div class="col-md-12">
+
+                            <form id="formInquiry" action="/Home/SickLeave" method="post">
+
+                                <div id="inquiry-form" class="inquiry-form {{INF}}">
+
+                                    <div>
+
+                                        <div class="col-lg-12">
+
+                                            <input autocomplete="off" class="l-txt JustNumber" data-val="true" data-val-required="حقل إلزامي" id="RIDN" name="RIDN" placeholder="رمز الخدمة" type="text" value="" />
+
+                                        </div>
+
+                                        <div class="col-lg-12">
+
+                                            <input autocomplete="off" class="l-txt JustNumber" data-val="true" data-val-maxlength="الرقم مكون من 10 ارقام" data-val-maxlength-max="10" data-val-minlength="الرقم مكون من 10 ارقام" data-val-minlength-min="10" data-val-required="حقل إلزامي" id="PIDN" maxlength="10" name="PIDN" placeholder="رقم الهوية / الاقامة" type="text" value="" />
+
+                                        </div>
+
+                                        <div class="col-lg-12">
+
+                                            <input id="btnSubmit" type="submit" class="l-btn" value="استعلام" />
+
+                                        </div><br><br><br>
+
+                                    </div>
+
+                                </div>
+
+                            </form>
+
+                        </div>
+
+                    </div>
+
+                    <div class="row">
+
+                        <div class="col-md-12">
+
+                            <div id="inquiry-result" class="{{INR}}">
+
+                                <p class="l-title">{{TIT}}</p>
+
+                                <p class="{{INE}}">
+
+                                    رمز الخدمة: <label id="lblNumber">{{RIDN}}</label><span class="l-spacer">|</span> الاسم: <label id="lblName">{{PFNA}}</label><span class="l-spacer">|</span>تاريخ الاجازة المرضية: <label id="lblDate">{{SDA}}</label>
+
+                                </p>
+
+                                <div class="l-btn-parent">
+
+                                    <a href="{{url_for('home')}}" type="button"><button class="l-btn">استعلام جديد</button></a>
+
+                                    <a href="{{url_for('doc', id=RIDN)}}" type="submit"><button class="l-btn l-blue {{INE}}">طباعة التقرير</button></a>
+
+                                    <!--<input onclick="newInquiry()" type="button" class="l-btn" value="استعلام جديد" />
+
+                                    <input id="print" type="button" class="l-btn l-blue" value="طباعة التقرير" />-->
+
+                                </div>
+
+                            </div>
+
+                        </div>
+
+                    </div>
+
+                </section>
+
+            </div>
+
+        </div>
+
+      </div>
+
+                    <div id="printSickLeaveReport {{DOC}}">
+
+                        <style>
+
+                            .body {
+
+                                direction: ltr;
+
+                                /*font-size: 12px !important;*/
+
+                            }
+
+                            /*@media print and (orientation: landscape) {
+
+        font-size: 6px !important;
+
+    }*/
+
+                            @media print and (orientation: landscape) {
+
+                                .body {
+
+                                    margin-top: 0mm;
+
+                                    margin-bottom: 0mm;
+
+                                    margin-left: 0mm;
+
+                                    margin-right: 0mm;
+
+                                    display: block !important;
+
+                                    font-size: 8px !important;
+
+                                    font-weight: 400 !important;
+
+                                }
+
+                                @page {
+
+                                    margin-top: 0cm;
+
+                                    margin-bottom: 0cm;
+
+                                }
+
+                            }
+
+                            @media print and (orientation: portrait) {
+
+                                .body {
+
+                                    margin-top: 0mm;
+
+                                    margin-bottom: 0mm;
+
+                                    margin-left: 0mm;
+
+                                    margin-right: 0mm;
+
+                                    display: block !important;
+
+                                    font-size: 11px !important;
+
+                                }
+
+                                @page {
+
+                                    margin-top: 1.2cm;
+
+                                    margin-bottom: 0cm;
+
+                                }
+
+                            }
+
+                            .imgLogo {
+
+                                width: 90px;
+
+                            }
+
+                            .txtCenter {
+
+                                text-align: center;
+
+                            }
+
+                            .txtRight {
+
+                                text-align: right;
+
+                            }
+
+                            .headerText {
+
+                                text-align: center;
+
+                                font-size: 1.44em;
+
+                                vertical-align: bottom;
+
+                                font-weight: bold;
+
+                            }
+
+                            .changeTxt {
+
+                                font-weight: bold;
+
+                            }
+
+                            .contentBorderLeft {
+
+                                border-right: 1px solid #333;
+
+                                text-align: left;
+
+                                padding: 10px;
+
+                                width: 50%;
+
+                                padding-bottom: 3px;
+
+                                padding-top: 3px;
+
+                            }
+
+                            .contentBorderRight {
+
+                                text-align: right;
+
+                                padding: 10px;
+
+                                padding-bottom: 3px;
+
+                                padding-top: 3px;
+
+                            }
+
+                            .borderBlack {
+
+                                border-top: 1px solid #333 !important;
+
+                                width: 49%;
+
+                            }
+
+                            .height16 {
+
+                                height: 16px;
+
+                            }
+
+                            /*@media print {
+
+        .body {
+
+            margin-top: 0mm;
+
+            margin-bottom: 0mm;
+
+            margin-left: 0mm;
+
+            margin-right: 0mm;
+
+            display: block !important;
+
+        }
+
+        @page {
+
+            size: portrait;
+
+            margin-top: 0cm;
+
+            margin-bottom: 0cm;
+
+        }
+
+    }*/
+
+                        </style>
+
+                        <div class="body" style="display:{{PDF}}">
+
+                            <table class="center" style="width:97.5%" align="center" border="0" cellpadding="0" cellspacing="0">
+
+                                <thead>
+
+                                    <tr>
+
+                                        <td style="width: 40%"></td>
+
+                                        <td style="width: 20%"></td>
+
+                                        <td style="width: 40%"></td>
+
+                                    </tr>
+
+                                </thead>
+
+                                <tbody>
+
+                                    <tr>
+
+                                        <td colspan="4">
+
+                                             
+
+                                        </td>
+
+                                    </tr>
+
+                                    <tr>
+
+                                        <td>
+
+                                            <img class="" src="../static/img/h_logo.png" style="float:left;height:85px;width:250px" />
+
+                                        </td>
+
+                                        <td class="headerText">
+
+                                            <span>تقرير إجازة مرضية</span>
+
+                                            <br />
+
+                                            <span>Sick Leave Report</span>
+
+                                            <br />
+
+                                            <span>{{RIDN}}</span>
+
+                                        </td>
+
+                                        <td>
+
+                                            <img class="" src="../static/img/logo.png" id="signature_id" style="float:right;height:100px;width:110px" />
+
+                                        </td>
+
+                                    </tr>
+
+                                    <tr>
+
+                                        <td colspan="4">
+
+                                             
+
+                                        </td>
+
+                                    </tr>
+
+                                    <tr>
+
+                                        <td style="text-align: justify;">
+
+                                            <b class="changeTxt">{{HFNE}}</b> states that patient
+
+                                            <b class="changeTxt">{{PFNE}}</b> Holder of ID Number
+
+                                            <b class="changeTxt">{{PIDN}}</b> has been given a sick leave report for
+
+                                            <b class="changeTxt">{{NOD}}</b> of days from
+
+                                            <b class="changeTxt">{{DEFR}}</b> to
+
+                                            <b class="changeTxt">{{DETO}}</b>
+
+                                        </td>
+
+                                        <td class="headerText">
+
+                                             
+
+                                        </td>
+
+                                        <td class="txtRight" style="float: right;text-align: right;direction: rtl;text-align:justify;">
+
+                                            يفيد
+
+                                            <b class="changeTxt">{{HFNA}}</b> بأن المريض
+
+                                            <b class="changeTxt">{{PFNA}}</b> صاحب الهوية رقم
+
+                                            <b class="changeTxt">{{PIDN}} </b> قد منح إجازة مرضية ل
+
+                                            <b class="changeTxt"> {{NOD}}</b> من الأيام من تاريخ
+
+                                            <b class="changeTxt">{{DAFR}}</b> إلى تاريخ
+
+                                            <b class="changeTxt">{{DATO}}</b> حسب التالي :
+
+                                        </td>
+
+                                    </tr>
+
+                                    <tr>
+
+                                        <td style="height: 10px;" colspan="3"></td>
+
+                                    </tr>
+
+                                    <tr>
+
+                                        <td style="text-align: center;font-weight: 600;border-bottom:1px solid #333;">
+
+                                            Patient’s Information
+
+                                        </td>
+
+                                        <td class="headerText">
+
+                                             
+
+                                        </td>
+
+                                        <td style="text-align: center;font-weight: 600;border-bottom:1px solid #333;">
+
+                                            بيانات المريض
+
+                                        </td>
+
+                                    </tr>
+
+                                    <tr>
+
+                                        <td class="height16" colspan="3">
+
+                                            <table class="center borderBlack" style="width:100%" align="center" border="0" cellpadding="0" cellspacing="0">
+
+                                                <thead>
+
+                                                    <tr class="borderBlack"></tr>
+
+                                                    <tr class="borderBlack"></tr>
+
+                                                </thead>
+
+                                                <tbody>
+
+                                                    <tr>
+
+                                                        <td class="contentBorderLeft">Medical Record Number: {{PIDN}}</td>
+
+                                                        <td class="contentBorderRight">رقم السجل الطبي : {{PIDN}}</td>
+
+                                                    </tr>
+
+                                                    <tr>
+
+                                                        <td class="contentBorderLeft">National ID Number : {{PIDN}}</td>
+
+                                                        <td class="contentBorderRight">رقم الهوية الوطنية / الإقامة : {{PIDN}}</td>
+
+                                                    </tr>
+
+                                                    <tr>
+
+                                                        <td class="contentBorderLeft">Full Name : {{PFNE}}</td>
+
+                                                        <td class="contentBorderRight" dir="rtl">الاسم الكامل : {{PFNA}}</td>
+
+                                                    </tr>
+
+                                                    <tr>
+
+                                                        <td class="contentBorderLeft">Sick Leave Issue Date : {{SDE}}</td>
+
+                                                        <td class="contentBorderRight">تاريخ إصدار الإجازة المرضية : {{SDA}}</td>
+
+                                                    </tr>
+
+                                                    <tr>
+
+                                                        <td class="contentBorderLeft">Gender :{{GE}}</td>
+
+                                                        <td class="contentBorderRight" dir="rtl">الجنس : {{GA}}</td>
+
+                                                    </tr>
+
+                                                    <tr>
+
+                                                        <td class="contentBorderLeft">Date of Birth : {{DOBE}}</td>
+
+                                                        <td class="contentBorderRight">تاريخ الميلاد : {{DOBA}}</td>
+
+                                                    </tr>
+
+                                                    <tr>
+
+                                                        <td class="contentBorderLeft">Employer : {{JPE}}</td>
+
+                                                        <td class="contentBorderRight" dir="rtl">جهة العمل : {{JPA}}</td>
+
+                                                    </tr>
+
+                                                    <tr>
+
+                                                        <td class="contentBorderLeft">Occupation : {{JNE}}</td>
+
+                                                        <td class="contentBorderRight" dir="rtl">المهنة : {{JNA}}</td>
+
+                                                    </tr>
+
+                                                    <tr>
+
+                                                        <td class="contentBorderLeft">Visit Date :{{DEFR}}</td>
+
+                                                        <td class="contentBorderRight">تاريخ الدخول : {{DAFR}} </td>
+
+                                                    </tr>
+
+                                                    <tr>
+
+                                                        <td class="contentBorderLeft">Discharge Date : {{DETO}}</td>
+
+                                                        <td class="contentBorderRight">تاريخ الخروج : {{DATO}}</td>
+
+                                                    </tr>
+
+                                                    <tr>
+
+                                                        <td class="contentBorderLeft">Revisit Date : </td>
+
+                                                        <td class="contentBorderRight">: تاريخ المراجعة </td>
+
+                                                    </tr>
+
+                                                    <tr>
+
+                                                        <td class="contentBorderLeft extraH" style="font-weight: 600;text-align: center;border-bottom:1px solid #333;">Recommendation</td>
+
+                                                        <td class="contentBorderRight extraH" style="font-weight: 600;text-align: center;border-bottom:1px solid #333;">التوصيات</td>
+
+                                                    </tr>
+
+                                                </tbody>
+
+                                            </table>
+
+                                        </td>
+
+                                    </tr>
+
+                                    <tr>
+
+                                        <td class="height16" colspan="3">
+
+                                            <table class="center borderBlack" style="width:100%" border="0" cellpadding="0" cellspacing="0">
+
+                                                <thead>
+
+                                                    <tr class="borderBlack"></tr>
+
+                                                    <tr class="borderBlack"></tr>
+
+                                                </thead>
+
+                                                <tbody>
+
+                                                    <tr>
+
+                                                        <td class="contentBorderLeft">Sick Leave for {{NOD}} days</td>
+
+                                                        <td class="contentBorderRight">تم منحه إجازة مرضية لمدة {{NOD}} أيام</td>
+
+                                                    </tr>
+
+                                                    <tr>
+
+                                                        <td class="contentBorderLeft">From :{{DEFR}}</td>
+
+                                                        <td class="contentBorderRight"> من تاريخ : {{DAFR}}</td>
+
+                                                    </tr>
+
+                                                    <tr>
+
+                                                        <td class="contentBorderLeft">To : {{DETO}}</td>
+
+                                                        <td class="contentBorderRight"> حتى تاريخ : {{DATO}}</td>
+
+                                                    </tr>
+
+                                                    <tr>
+
+                                                        <td class="contentBorderLeft">Consultation Date :
+
+                                                            <!-- td -->
+
+                                                        </td>
+
+                                                        <td class="contentBorderRight" dir="rtl">مراجعة الطبيب المعالج قبل انتهاء إجازته : </td>
+
+                                                    </tr>
+
+                                                    <tr>
+
+                                                        <td class="contentBorderLeft" style="font-weight: 600;text-align: center;border-bottom:1px solid #333;">Attending Physician Information</td>
+
+                                                        <td class="contentBorderRight" style="font-weight: 600;text-align: center;border-bottom:1px solid #333;">بيانات الطبيب المعالج</td>
+
+                                                    </tr>
+
+                                                </tbody>
+
+                                            </table>
+
+                                        </td>
+
+                                    </tr>
+
+                                    <tr>
+
+                                        <td class="height16" colspan="3">
+
+                                            <table class="center borde&#10;                           rBlack" style="width:100%" border="0" cellpadding="0" cellspacing="0">
+
+                                                <thead>
+
+                                                    <tr class="borderBlack"></tr>
+
+                                                    <tr class="borderBlack"></tr>
+
+                                                </thead>
+
+                                                <tbody>
+
+                                                    <tr>
+
+                                                        <td class="contentBorderLeft">Name : ABDULLAH MUFAREH ALI ASSIRI</td>
+
+                                                        <td class="contentBorderRight" dir="rtl">الاسم : عبدالله مفرح علي عسيري</td>
+
+                                                    </tr>
+
+                                                    <tr>
+
+                                                        <td class="contentBorderLeft">Position : Consultant</td>
+
+                                                        <td class="contentBorderRight" dir="rtl">المسمى الوظيفي : استشاري</td>
+
+                                                    </tr>
+
+                                                    <tr>
+
+                                                        <td class="contentBorderLeft" style="font-weight: 600;text-align: center;border-bottom:1px solid #333;">Alternate Physician Information</td>
+
+                                                        <td class="contentBorderRight" style="font-weight: 600;text-align: center;border-bottom:1px solid #333;">بيانات الطبيب المناوب</td>
+
+                                                    </tr>
+
+                                                </tbody>
+
+                                            </table>
+
+                                        </td>
+
+                                    </tr>
+
+                                    <tr>
+
+                                        <td class="height16" colspan="3">
+
+                                            <table class="center borderBlack" style="width:100%" border="0" cellpadding="0" cellspacing="0">
+
+                                                <thead>
+
+                                                    <tr class="borderBlack"></tr>
+
+                                                    <tr class="borderBlack"></tr>
+
+                                                </thead>
+
+                                                <tbody>
+
+                                                    <tr>
+
+                                                        <td class="contentBorderLeft">Name : </td>
+
+                                                        <td class="contentBorderRight" dir="rtl">الاسم : </td>
+
+                                                    </tr>
+
+                                                    <tr>
+
+                                                        <td class="contentBorderLeft">Position : </td>
+
+                                                        <td class="contentBorderRight" dir="rtl">المسمى الوظيفي : </td>
+
+                                                    </tr>
+
+                                                </tbody>
+
+                                            </table>
+
+                                        </td>
+
+                                    </tr>
+
+                                    <tr>
+
+                                        <td colspan="3">
+
+                                             
+
+                                        </td>
+
+                                    </tr>
+
+                                    <tr>
+
+                                        <td style="height:50px;text-align: center;">
+
+                                            <div class="row">
+
+                                            </div>
+
+                                        </td>
+
+                                        <td></td>
+
+                                        <td style="height:1px;text-align: center;">
+
+                                            <div class="row">
+
+                                                <div style="height:5px;clear:both;"></div>
+
+                                                <div class="col-xs-12">
+
+                                                    <img src="../static/img/SehaLogo.png" width="104" height="62" style="float:right;" /><br /><br><br><br>
+
+                                <h class="contentBorderRight">للتحقق من صحة التقرير يرجى زيارة منصة صحة</h><br><h>على الرابط</h><br><b class="changeTxt">https://www.seha.sa/Home/SickLeave</b><br><h>و إدخال الرقم المرجعي للتقرير</h>
+
+                                                </div>
+
+                                            </div>
+
+                                        </td>
+
+                                    </tr>
+
+                                </tbody>
+
+                            </table>
+
+                        </div>
+
+                    </div><!--End of print-->
+
+                    
+
+                <!--</section>
+
+            </div>
+
+        </div>-->
+
+        <footer class="container {{HID}}" style="padding:25px 10px;">
+
+            <p class="float-right footerText">
+
+                <img class="d-inline-block" src="../static/img/moh.png" alt="logo" style="margin-left:30px;" />
+
+                <img class="d-inline-block" src="../static/img/LeanFooter.png" alt="logo" />
+
+            </p>
+
+            <p class="float-right footerText def">
+
+                منصة صحة معتمدة من قبل وزارة الصحة © 2020<br />
+
+                <a class="text-right float-right black" href="../static/LandingPages/T&Cs.pdf">الشروط والأحكام</a>
+
+                <a class="text-right float-right footerSeparator" style="color:#00A896;"> | </a>
+
+                <a class="text-right float-right black" href="../static/LandingPages/UserManual.pdf">دليل الاستخدام</a>
+
+            </p>
+
+            <p class="float-left" style="width:160px;">
+
+                <strong class="text-right float-right h4 green">للاستفسارات</strong><br />
+
+                <a class="text-right float-right black" href="mailto:support@seha.sa">support@seha.sa <i class="fa fa-envelope"></i></a><br />
+
+                <a class="text-right float-right black" href="tel:920002005">920002005 <i class="fa fa-phone-square"></i></a>
+
+            </p>
+
+        </footer>
+
+    </main>
+
+    <div id="printableMain-div" style="padding:15px;display:none;">
+
+        <div id="printable-div"></div>
+
+    </div>
+
+</body>
+
+</html>
+
