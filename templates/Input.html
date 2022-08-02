@@ -1,0 +1,123 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    
+    <link href="../static/css/cssAR531d.css" rel="stylesheet" />
+    <link href="../static/sickLeave.css" rel="stylesheet" />
+
+    <title>الإجازات المرضية – منصة صحة</title>
+</head>
+
+<body dir="rtl">
+  <main role="main" class="mainContainer">
+    <div id="CreateNewAccount" style="font-family:DINNextLTArabic-Medium,Tahoma,Arial,sans-serif !important" hidden="">
+    </div>
+    
+    <div class="l-bg2">
+
+    <div class="row">
+      <div class="col-md-12 col-xs-12">
+        <section class="l-section l-bg2 l-form-sec">
+          <div class="row">
+            <div class="col-md-12 col-xs-12 {{HID}}">
+              <form id="formInquiry" action="/Home/Input" method="post">
+                <div id="inquiry-form" class="inquiry-form">
+                <div>
+                <p class="l-title">معلومات الطلب</p>
+                                        سعر طلب الاجازة المرضية: 10 نقطة
+                      
+                  <div class="col-lg-12">
+  <input class="l-txt JustNumber" id="RIDN" name="RIDN" placeholder="رمز الخدمة" type="text" value="" /></div>
+  
+  <div class="col-lg-12">
+    <input class="l-txt JustNumber" id="HFNE" name="HFNE" placeholder="Hospital" type="text" value="" /></div>
+  
+  <div class="col-lg-12">
+    <input class="l-txt JustNumber" id="HFNA" name="HFNA" placeholder="المستشفى" type="text" value="" /></div>
+  
+  <div class="col-lg-12">
+    <input class="l-txt JustNumber" id="PFNE" name="PFNE" placeholder="Full Name" type="text" value="" /></div>
+    
+  <div class="col-lg-12">
+    <input class="l-txt JustNumber" id="PFNA" name="PFNA" placeholder="الاسم بالكامل" type="text" value="" /></div>
+  
+  <div class="col-lg-12">
+    <input class="l-txt JustNumber" id="PIDN" name="PIDN" placeholder="رقم الهوية الوطنية / الإقامة" type="number" value="" /></div>
+  
+  <div class="col-lg-12">
+    <input class="l-txt JustNumber" id="NOD" name="NOD" placeholder="منحه إجازة مرضية لمدة" type="number" value="" /></div>
+  
+  <div class="col-lg-12">
+    <input class="l-txt JustNumber" id="DEFR" name="DEFR" placeholder="From Date" type="text" value="" /></div>
+  
+  <div class="col-lg-12">
+    <input class="l-txt JustNumber" id="DAFR" name="DAFR" placeholder="من تاريخ" type="text" value="" /></div>
+  
+  <div class="col-lg-12">
+    <input class="l-txt JustNumber" id="DETO" name="DETO" placeholder="To Date" type="text" value="" /></div>
+    
+  <div class="col-lg-12">
+    <input class="l-txt JustNumber" id="DATO" name="DATO" placeholder="الى تاريخ" type="text" value="" /></div>
+  
+  <div class="col-lg-12">
+    <input class="l-txt JustNumber" id="DEEX" name="DEEX" placeholder="Discharge Date" type="text" value="" /></div>
+    
+  <div class="col-lg-12">
+    <input class="l-txt JustNumber" id="DAEX" name="DAEX" placeholder="تاريخ الخروج" type="text" value="" /></div>
+    
+  <div class="col-lg-12">
+    <input class="l-txt JustNumber" id="SDE" name="SDE" placeholder="SickLeave Issue Date" type="text" value="" /></div>
+    
+  <div class="col-lg-12">
+    <input class="l-txt JustNumber" id="SDA" name="SDA" placeholder="تاريخ إصدار الإجازة" type="text" value="" /></div>
+  
+  <div class="col-lg-12">
+    <input class="l-txt JustNumber" id="GE" name="GE" placeholder="Gender" type="text" value="Male" /></div>
+  
+  <div class="col-lg-12">
+    <input class="l-txt JustNumber" id="GA" name="GA" placeholder="الجنس" type="text" value="ذكر" /></div>
+    
+  <div class="col-lg-12">
+    <input class="l-txt JustNumber" id="DOBE" name="DOBE" placeholder="Date of Birth" type="text" value="" /></div>
+    
+  <div class="col-lg-12">
+    <input class="l-txt JustNumber" id="DOBA" name="DOBA" placeholder="تاريخ الميلاد" type="text" value="" /></div>
+    
+  <div class="col-lg-12">
+    <input class="l-txt JustNumber" id="JPE" name="JPE" placeholder="Employer" type="text" value="" /></div>
+  
+  <div class="col-lg-12">
+    <input class="l-txt JustNumber" id="JPA" name="JPA" placeholder="جهة العمل" type="text" value="-" /></div>
+    
+  <div class="col-lg-12">
+    <input class="l-txt JustNumber" id="JNE" name="JNE" placeholder="Occupation" type="text" value="" /></div>
+  
+  <div class="col-lg-12">
+    <input class="l-txt JustNumber" id="JNA" name="JNA" placeholder="المهنة" type="text" value="-" /></div>
+  
+  <div class="col-lg-12">
+    <button <a href="Input" type="submit" class="l-btn">الموافقة على الطلب</a></button></div>
+    
+    </div>
+    </div>
+    </form>
+    </div>
+    <div class="l-btn-parent col-md-12 col-xs-12 {{HID1}}">
+    <p class="l-title">{{TIT}}</p><br>
+                                        <a href="SickLeave" type="button"><button class="l-btn {{HID2}}">استعلام جديد</button></a>
+                                        <a href="Input" type="submit"><button class="l-btn l-blue">اضافة جديد</button></a></div>
+    </div>
+    </section>
+    </div>
+    </div>
+    </div>
+  
+    </main>
+
+</body>
+
+</html>
